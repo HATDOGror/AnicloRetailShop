@@ -1,3 +1,4 @@
+<!--Lumaoang, Gonzales, Remolacio-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,8 @@
     <title>All Products - AniClo</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 </head>
 <body>
 
@@ -29,79 +31,27 @@
         </div>
     </div>
 
-<!----cart items details---->
-<div class="small-container cart-page">
-    <table>
-        <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Subtotal</th>
-        </tr>
-        <tr>
-            <td>
-                <div class="cart-info">
-                    <img src="AnimeClothing1.jpg">
-                    <div>
-                        <p>Japanese Horror Comic Printed</p>
-                        <small>Price: ₱1200.00</small>
-                        <br>
-                        <a href="">Remove</a>
-                    </div>
-                </div>
-            </td>
-            <td><input type="number" value="1">Quantity</td>
-            <td>₱1200.00</td>
-        </tr>
-        <tr>
-            <td>
-                <div class="cart-info">
-                    <img src="AnimeClothing2.jpg">
-                    <div>
-                        <p>Slight Cartoon Anime Print Black</p>
-                        <small>Price: ₱1100.00</small>
-                        <br>
-                        <a href="">Remove</a>
-                    </div>
-                </div>
-            </td>
-            <td><input type="number" value="1">Quantity</td>
-            <td>₱1100.00</td>
-        </tr>
-        <tr>
-            <td>
-                <div class="cart-info">
-                    <img src="animeShoes1.jpg">
-                    <div>
-                        <p>Luxury Kaneki Shoes Design</p>
-                        <small>Price: ₱3300.00</small>
-                        <br>
-                        <a href="">Remove</a>
-                    </div>
-                </div>
-            </td>
-            <td><input type="number" value="1">Quantity</td>
-            <td>₱3300.00</td>
-        </tr>
-    </table>
-    <div class="total-price">
+    <div class="small-container cart-page">
         <table>
             <tr>
-                <td>Subtotal</td>
-                <td>₱5600.00</td>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>Remove</th>
             </tr>
-            <tr>
-                <td>Tax</td>
-                <td>₱150.00</td>
-            </tr>
-            <tr>
-                <td>Total</td>
-                <td>₱5750.00</td>
-            </tr>
+            <tbody id="cart-items"></tbody>
         </table>
-    </div>
-</div>
 
-<!---- footer ---->
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td id="total-amount">₱0.00</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
     <div class="footer">
         <div class="container">
             <div class="row">
@@ -142,22 +92,94 @@
         </div>
     </div>
 
-<!-----js for toggle menu----->
     <script>
         var MenuItems = document.getElementById("MenuItems");
-
         MenuItems.style.maxHeight = "0px";
 
-        function menutoggle(){
-            if(MenuItems.style.maxHeight == "0px")
-                {
-                    MenuItems.style.maxHeight = "200px";
-                }
-            else
-                {
-                    MenuItems.style.maxHeight = "0px";
-                }
+        function menutoggle() {
+            if (MenuItems.style.maxHeight == "0px") {
+                MenuItems.style.maxHeight = "200px";
+            } else {
+                MenuItems.style.maxHeight = "0px";
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            displayCart();
+        });
+
+        function addToCart(productName, productPrice) {
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
+            var existingItem = cart.find(item => item.name === productName);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                var newItem = {
+                    name: productName,
+                    price: productPrice,
+                    quantity: 1
+                };
+                cart.push(newItem);
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCart();
+            alert('Product added to cart successfully!');
+        }
+
+        function displayCart() {
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
+            var cartItemsContainer = document.getElementById('cart-items');
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+            } else {
+                cartItemsContainer.innerHTML = '';
+                cart.forEach(item => {
+                    var cartRow = document.createElement('tr');
+                    cartRow.innerHTML = `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td><input type="number" value="${item.quantity}" onchange="updateQuantity('${item.name}', this.value)"></td>
+                        <td>₱${(item.price * item.quantity).toFixed(2)}</td>
+                        <td><button onclick="removeItem('${item.name}')" style="background-color: purple; color: white;">
+                        <i class="fas fa-trash-alt"></i>
+                        </button></td>
+                    </tr>
+                    `;
+                    cartItemsContainer.appendChild(cartRow);
+                });
+            }
+
+            updateTotal();
+        }
+
+        function updateQuantity(productName, newQuantity) {
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
+            var selectedItem = cart.find(item => item.name === productName);
+
+            if (selectedItem) {
+                selectedItem.quantity = parseInt(newQuantity);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                displayCart();
+            }
+        }
+
+        function removeItem(productName) {
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
+            var updatedCart = cart.filter(item => item.name !== productName);
+            localStorage.setItem('cart', JSON.stringify(updatedCart));
+            displayCart();
+        }
+
+        function updateTotal() {
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
+            var totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+
+            document.getElementById('total-amount').innerText = '₱' + totalAmount.toFixed(2);
         }
     </script>
+
 </body>
 </html>
