@@ -251,6 +251,25 @@ ul{
     margin-left: 20px;
     display: none;
 }
+.member-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.member {
+    text-align: center;
+}
+
+.member h4 {
+    margin-top: 10px; 
+    font-size: 20px; 
+}
+
+.member p {
+    margin-bottom: 10px; 
+    color: gray; 
+}
+
 
 /*----- media query for menu -----*/
 @media only screen and (max-width: 800px){

@@ -1,4 +1,5 @@
 <!--Batacandolo & Gonzales-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +21,7 @@
                 <ul id="MenuItems">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="products.html">Products</a></li>
-                    <li><a href="">About</a></li>
+                    <li><a href="about.html">About</a></li>
                     <li><a href="">Contact</a></li>
                     <li><a href="account.html">Account</a></li>
                 </ul>
@@ -137,5 +138,66 @@
             Indicator.style.transform = "translateX(0px)";
         }
     </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var LoginForm = document.getElementById("LoginForm");
+                var RegForm = document.getElementById("RegForm");
+                var Indicator = document.getElementById("Indicator");
+
+                if (localStorage.getItem('username')) {
+                    hideForms(); 
+                    alert('You are already logged in as ' + localStorage.getItem('username'));
+                }
+
+                function hideForms() {
+                    RegForm.style.transform = "translateX(300px)";
+                    LoginForm.style.transform = "translateX(300px)";
+                    Indicator.style.transform = "translateX(0px)";
+                }
+
+                function register() {
+                    hideForms();
+                    RegForm.style.transform = "translateX(0px)";
+                    Indicator.style.transform = "translateX(100px)";
+                }
+
+                function login() {
+                    var username = LoginForm.querySelector('input[type="text"]').value;
+                    var password = LoginForm.querySelector('input[type="password"]').value;
+
+                    // For Testing - Email: anicloadmin \ Password: aniclopassword
+                    
+                    if (username === 'anicloadmin' && password === 'aniclopassword') {
+                        localStorage.setItem('username', username);
+                        alert('Login successful!');
+                        hideForms();
+                        window.location.href = 'index.html';
+                    } else {
+                        alert('Invalid username or password');
+                    }
+                }
+
+                LoginForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    login(); 
+                });
+
+                RegForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    var username = RegForm.querySelector('input[type="text"]').value;
+                    var email = RegForm.querySelector('input[type="email"]').value;
+                    var password = RegForm.querySelector('input[type="password"]').value;
+
+                    localStorage.setItem('username', anicloadmin);
+                    localStorage.setItem('email', email);
+                    localStorage.setItem('password', aniclopassword);
+
+                    alert('Registration successful! You can now log in.');
+                    hideForms();
+                });
+            });
+        </script>
+
 </body>
 </html>
