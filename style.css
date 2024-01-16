@@ -475,7 +475,7 @@ form .btn:focus{
     left: -300px;
 }
 #RegForm{
-    left: 0;
+    left: 50;
 }
 form a{
     font-size: 12px;
@@ -488,6 +488,60 @@ form a{
     margin-top: 8px;
     transform: translateX(100px);
     transition: transform 1s;
+}
+.pay-section {
+    margin-top: 20px;
+    text-align: center;
+}
+.pay-section2{
+	 margin-top: 20px;
+    text-align: right;
+}
+
+#payment-form {
+    display: none;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #C5ADD0;
+
+}
+
+#payment-details-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#payment-details-form label,
+#payment-details-form select,
+#payment-details-form textarea {
+    margin: 10px 0;
+}
+
+.pay-section2 button{
+	background-color: #2F0045;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+#payment-details-form button {
+    background-color: #2F0045;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#payment-details-form button:hover {
+    background-color: #D900DF;
 }
 
 

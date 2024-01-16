@@ -1,4 +1,4 @@
-<!--Batacandolo & Gonzales-->
+<!--Batacandolo , Gonzales , Lumaoang-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,6 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="products.html">Products</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="">Contact</a></li>
                     <li><a href="account.html">Account</a></li>
                 </ul>
             </nav>
@@ -64,15 +63,17 @@
     </div>
 </div>
 
-    <div class="footer">
+     <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="footer-col-1">
                     <h3>Download Our App</h3>
                     <p>Download App for Android and IOS mobile phone.</p>
                     <div class="app-logo">
+						<a href="https://www.appcracy.com/app/google-play-store/?utm_source=bing&utm_medium=cpc&utm_campaign=PS_ASIA_M05&utm_term=play%20store&utm_content=PS">
                         <img src="play-store.png">
                         <img src="app-store.png">
+						</a>
                     </div>
                 </div>
                 <div class="footer-col-2">
@@ -83,121 +84,67 @@
                 <div class="footer-col-3">
                     <h3>Useful Links</h3>
                     <ul>
-                        <li>Coupons</li>
-                        <li>Blog Post</li>
-                        <li>Return Policy</li>
-                        <li>Join Affiliate</li>
+                        <li><a href="https://dealspotr.com/promo-codes/animeape.com">Coupon</a></li>
+                        <li><a href ="https://myotakuworld.com/">Blog Post</a></li>
+                        <li><a href = "https://animeandthings.com/refunds-returns-policy/">Return Policy</a></li>
+                        <li><a href ="https://www.affilorama.com/blog/best-anime-affiliate-programs">Join Affiliate</a></li>
                     </ul>
                 </div>
                 <div class="footer-col-4">
                     <h3>Follow Us</h3>
                     <ul>
-                        <li>Facebook</li>
-                        <li>Twitter</li>
-                        <li>Instagram</li>
-                        <li>Youtube</li>
+                        <li><a href="https://www.facebook.com/AnimeCorner.Official/">Facebook</a></li>
+                        <li><a href ="https://twitter.com/GomuAdventures">Twitter</a></li>
+                        <li><a href = "https://www.instagram.com/anime/">Instagram</a></li>
+                        <li><a href ="https://www.youtube.com/@crunchyroll">Youtube</a></li>
                     </ul>
                 </div>
             </div>
             <hr>
-            <p class="copyright">Copyright 2023 - Group 5</p>
+            <p class="copyright">Copyright 2023 - Group 5 </p>
         </div>
     </div>
 
-    <script>
-        var MenuItems = document.getElementById("MenuItems");
 
-        MenuItems.style.maxHeight = "0px";
 
-        function menutoggle(){
-            if(MenuItems.style.maxHeight == "0px")
-                {
-                    MenuItems.style.maxHeight = "200px";
-                }
-            else
-                {
-                    MenuItems.style.maxHeight = "0px";
-                }
+   <script>
+    var MenuItems = document.getElementById("MenuItems");
+    MenuItems.style.maxHeight = "0px";
+
+    function menutoggle() {
+        if (MenuItems.style.maxHeight == "0px") {
+            MenuItems.style.maxHeight = "200px";
+        } else {
+            MenuItems.style.maxHeight = "0px";
         }
-    </script>
+    }
 
-    <script>
     var LoginForm = document.getElementById("LoginForm");
     var RegForm = document.getElementById("RegForm");
-    var Indicator = document.getElementById("Indicator"); 
+    var Indicator = document.getElementById("Indicator");
 
-        function register(){
-            RegForm.style.transform = "translateX(0px)";
-            LoginForm.style.transform = "translateX(0px)";
-            Indicator.style.transform = "translateX(100px)";
-        }
+    function register() {
+        RegForm.style.transform = "translateX(0px)";
+        LoginForm.style.transform = "translateX(0px)";
+        Indicator.style.transform = "translateX(100px)";
+    }
 
-        function login(){
-            RegForm.style.transform = "translateX(300px)";
-            LoginForm.style.transform = "translateX(300px)";
-            Indicator.style.transform = "translateX(0px)";
-        }
-    </script>
+    function login() {
+        RegForm.style.transform = "translateX(300px)";
+        LoginForm.style.transform = "translateX(300px)";
+        Indicator.style.transform = "translateX(0px)";
+    }
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                var LoginForm = document.getElementById("LoginForm");
-                var RegForm = document.getElementById("RegForm");
-                var Indicator = document.getElementById("Indicator");
+    function showWelcomeMessage() {
+        alert("Welcome to AniClo!");
+        window.location.href = "index.html";
+    }
+    RegForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        showWelcomeMessage();
+    });
+</script>
 
-                if (localStorage.getItem('username')) {
-                    hideForms(); 
-                    alert('You are already logged in as ' + localStorage.getItem('username'));
-                }
-
-                function hideForms() {
-                    RegForm.style.transform = "translateX(300px)";
-                    LoginForm.style.transform = "translateX(300px)";
-                    Indicator.style.transform = "translateX(0px)";
-                }
-
-                function register() {
-                    hideForms();
-                    RegForm.style.transform = "translateX(0px)";
-                    Indicator.style.transform = "translateX(100px)";
-                }
-
-                function login() {
-                    var username = LoginForm.querySelector('input[type="text"]').value;
-                    var password = LoginForm.querySelector('input[type="password"]').value;
-
-                    // For Testing - Email: anicloadmin \ Password: aniclopassword
-                    
-                    if (username === 'anicloadmin' && password === 'aniclopassword') {
-                        localStorage.setItem('username', username);
-                        alert('Login successful!');
-                        hideForms();
-                        window.location.href = 'index.html';
-                    } else {
-                        alert('Invalid username or password');
-                    }
-                }
-
-                LoginForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    login(); 
-                });
-
-                RegForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    var username = RegForm.querySelector('input[type="text"]').value;
-                    var email = RegForm.querySelector('input[type="email"]').value;
-                    var password = RegForm.querySelector('input[type="password"]').value;
-
-                    localStorage.setItem('username', anicloadmin);
-                    localStorage.setItem('email', email);
-                    localStorage.setItem('password', aniclopassword);
-
-                    alert('Registration successful! You can now log in.');
-                    hideForms();
-                });
-            });
-        </script>
 
 </body>
 </html>
