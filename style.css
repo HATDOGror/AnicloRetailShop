@@ -269,7 +269,6 @@ ul{
     margin-bottom: 10px; 
     color: gray; 
 }
-/*----- about page -----*/
 
 .about-us-member {
     width: 100%;
@@ -314,10 +313,6 @@ ul{
     color: #3b5998; 
   
 }
-
-
- 
-
 
 
 
@@ -419,6 +414,76 @@ input:focus{
 .small-img-col{
     flex-basis: 24%;
     cursor: pointer;
+}
+.btn1-details1 {
+    font-size: 20px;
+    border-radius: 12px;
+    padding: 5px 10px;
+    background-color: white;
+}
+.btn2-details1 {
+    font-size: 20px;
+    color: white;
+    border-radius: 12px;
+    padding: 5px 10px;
+    background-color: black;
+}
+.btn1-details1:focus, .btn2-details1:focus {
+    border-color: #BA55D3;
+    border-radius: 12px;  
+}
+.btn1-details6 {
+    font-size: 20px;
+    color: white;
+    border-radius: 12px;
+    padding: 5px 10px;
+    background-color: gray;
+}
+.btn2-details6 {
+    font-size: 20px;
+    color: white;
+    border-radius: 12px;
+    padding: 5px 10px;
+    background-color: black;
+}
+.btn1-details6:focus, .btn2-details6:focus {
+    border-color: #BA55D3;
+    border-radius: 12px;  
+}
+.btn1-details7 {
+    font-size: 20px;
+    border-radius: 12px;
+    padding: 5px 10px;
+    background-color: white;
+}
+.btn2-details7 {
+    font-size: 20px;
+    color: black;
+    border-radius: 12px;
+    padding: 5px 10px;
+    background-color: rgb(218, 149, 218);
+}
+.btn1-details7:focus, .btn2-details7:focus {
+    border-color: #BA55D3;
+    border-radius: 12px;  
+}
+.btn1-details11 {
+    font-size: 20px;
+    color: white;
+    border-radius: 12px;
+    padding: 5px 10px;
+    background-color: gray;
+}
+.btn2-details11 {
+    font-size: 20px;
+    color: white;
+    border-radius: 12px;
+    padding: 5px 10px;
+    background-color: black;
+}
+.btn1-details11:focus, .btn2-details11:focus {
+    border-color: #BA55D3;
+    border-radius: 12px;  
 }
 /*----cart items----*/
 .cart-page{
