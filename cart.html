@@ -1,3 +1,4 @@
+<!--Lumaoang, Gonzales, Remolacio-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +34,7 @@
         <table>
             <tr>
                 <th>Product</th>
+                <th>Size</th>
                 <th>Quantity</th>
                 <th>Subtotal</th>
                 <th>Remove</th>
@@ -160,33 +162,34 @@
         }
 
         function displayCart() {
-            var cart = JSON.parse(localStorage.getItem('cart')) || [];
-            var cartItemsContainer = document.getElementById('cart-items');
+    var cart = JSON.parse(localStorage.getItem('cart')) || [];
+    var cartItemsContainer = document.getElementById('cart-items');
 
-            if (cart.length === 0) {
-                cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
-            } else {
-                cartItemsContainer.innerHTML = '';
-                cart.forEach(item => {
-                    var cartRow = document.createElement('tr');
-                    cartRow.innerHTML = `
-                    <tr>
-                        <td>${item.name}</td>
-                        <td><input type="number" value="${item.quantity}" onchange="updateQuantity('${item.name}', this.value)"></td>
-                        <td>₱${(item.price * item.quantity).toFixed(2)}</td>
-                        <td><button onclick="removeItem('${item.name}')" style="background-color: purple; color: white;">
-                        <i class="fas fa-trash-alt"></i>
-                        </button></td>
-                    </tr>
-                    `;
-                    cartItemsContainer.appendChild(cartRow);
-                });
-            }
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+    } else {
+        cartItemsContainer.innerHTML = '';
+        cart.forEach(item => {
+            var cartRow = document.createElement('tr');
+            cartRow.innerHTML = `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>${item.size || 'N/A'}</td>
+                    <td><input type="number" value="${item.quantity}" onchange="updateQuantity('${item.name}', this.value)"></td>
+                    <td>₱${(item.price * item.quantity).toFixed(2)}</td>
+                    <td><button onclick="removeItem('${item.name}')" style="background-color: purple; color: white;">
+                    <i class="fas fa-trash-alt"></i>
+                    </button></td>
+                </tr>
+            `;
+            cartItemsContainer.appendChild(cartRow);
+        });
+    }
 
-            updateTotal();
-        }
+    updateTotal();
+}
 
-        function updateQuantity(productName, newQuantity) {
+  function updateQuantity(productName, newQuantity) {
             var cart = JSON.parse(localStorage.getItem('cart')) || [];
             var selectedItem = cart.find(item => item.name === productName);
 
@@ -198,11 +201,16 @@
         }
 
         function removeItem(productName) {
-            var cart = JSON.parse(localStorage.getItem('cart')) || [];
-            var updatedCart = cart.filter(item => item.name !== productName);
-            localStorage.setItem('cart', JSON.stringify(updatedCart));
-            displayCart();
-        }
+    var cart = JSON.parse(localStorage.getItem('cart')) || [];
+    var indexToRemove = cart.findIndex(item => item.name === productName);
+    if (indexToRemove !== -1) {
+        cart.splice(indexToRemove, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCart();
+    }
+}
+
+
 
         function updateTotal() {
             var cart = JSON.parse(localStorage.getItem('cart')) || [];

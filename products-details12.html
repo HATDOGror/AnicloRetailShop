@@ -55,21 +55,26 @@
                 <p>Home / Phone Case</p>
                 <h1>Anime Characters Iphone Cover Case</h1>
                 <h4>₱1400.00</h4>
-                <select>
-                    <option>Select Phone Model</option>
-                    <option>IPHONE 6-6S</option>
-                    <option>IPHONE 6 plus-6S plus</option>
-                    <option>IPHONE 7-8</option>
-                    <option>IPHONE 7 plus-8 plus</option>
-                    <option>IPHONE X-XS</option>
-                    <option>IPHONE XS Max</option>
-                    <option>IPHONE XR</option>
-                    <option>IPHONE 11</option>
-                    <option>IPHONE 11 Pro</option>
-                    <option>IPHONE 11 Pro Max</option>
+                <select id="sizeSelect" onchange="updateSelectedSize()">
+                    <option value="">Select Size</option>
+                    <option value="IPHONE 6-6S">IPHONE 6-6S</option>
+                    <option value="IPHONE 6 plus-6s plus">IPHONE 6 plus-6s plus</option>
+                    <option value="IPHONE 7-8">IPHONE 7-8</option>
+                    <option value="IPHONE 7 plus-8 plus">IPHONE 7 plus-8 plus</option>
+                    <option value="IPHONE X-XS">IPHONE X-XS</option>
+                    <option value="IPHONE XS Max">IPHONE XS Max</option>
+                    <option value="IPHONE XR">IPHONE XR</option>
+                    <option value="IPHONE 11">IPHONE 11</option>
+                    <option value="IPHONE 11 Pro">IPHONE 11 Pro</option>
+                    <option value="IPHONE 11 Pro Max">IPHONE 11 Pro Max</option>
                 </select>
-                <input type="number" value="1">
-                <a href="" class="btn">Add to Cart</a>
+                <input type="number" id="quantityInput" value="1">
+                <a href="cart.html" class="btn" onclick="addToCart()">Add to Cart</a>
+                <div id="cartSummary">
+                    <p id="productSummary"></p>
+                    <p id="sizeSummary"></p>
+                    <p id="quantitySummary"></p>
+                </div>
 
                 <h3>Product Details<i class="fa fa-indent"></i></h3>
                 <br>
@@ -225,6 +230,55 @@
                 ProductImg.src = SmallImg[3].src;
             }
     </script>
-	
+
+<script>
+
+    function addToCart() {
+      var productName = "Anime Characters Iphone Cover Case"; // Customize this as needed
+      var sizeSelect = document.getElementById('sizeSelect');
+      var selectedSize = sizeSelect.options[sizeSelect.selectedIndex].text;
+
+      var quantity = parseInt(document.getElementById('quantityInput').value);
+      var itemPrice = parseFloat(document.querySelector('h4').innerText.replace('₱', ''));
+
+
+      if (selectedSize !== "Select Size") {
+          // Use localStorage to get the current cart items
+          var cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+          // Check if the product with the selected size already exists in the cart
+          var existingProduct = cart.find(item => item.name === productName && item.size === selectedSize);
+
+          if (existingProduct) {
+              // If the product exists, update the quantity
+              existingProduct.quantity += quantity;
+          } else {
+              // If the product doesn't exist, create a new item
+              var item = {
+                  name: productName,
+                  size: selectedSize,
+                  quantity: quantity,
+                  price: itemPrice
+              };
+              cart.push(item);
+          }
+
+          // Update the cart in localStorage
+          localStorage.setItem('cart', JSON.stringify(cart));
+
+          // Display the updated cart summary on the current page
+          var productSummaryElement = document.getElementById('productSummary');
+          var sizeSummaryElement = document.getElementById('sizeSummary');
+          var quantitySummaryElement = document.getElementById('quantitySummary');
+
+          productSummaryElement.textContent = `Product: ${productName}`;
+          sizeSummaryElement.textContent = `Size: ${selectedSize}`;
+          quantitySummaryElement.textContent = `Quantity: ${quantity}`;
+      } else {
+          alert('Please select a size before adding to cart.');
+      }
+  }
+</script>
+
 </body>
 </html>

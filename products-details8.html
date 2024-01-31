@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    
 </head>
 <body>
 
@@ -55,15 +56,19 @@
                 <p>Home / Pants</p>
                 <h1>Anime Print High Waist Washed Denim Jeans</h1>
                 <h4>₱5800.00</h4>
-                <select>
-                    <option>Select Size</option>
-                    <option>XL</option>
-                    <option>Large</option>
-                    <option>Medium</option>
-                    <option>Small</option>
+                <select id="sizeSelect" onchange="updateSelectedSize()">
+                    <option value="">Select Size</option>
+                    <option value="XL">XL</option>
+                    <option value="Large">Large</option>
+                    <option value="Medium">Medium</option>
                 </select>
-                <input type="number" value="1">
-                <a href="" class="btn">Add to Cart</a>
+                <input type="number" id="quantityInput" value="1">
+                <a href="cart.html" class="btn" onclick="addToCart()">Add to Cart</a>
+                <div id="cartSummary">
+                    <p id="productSummary"></p>
+                    <p id="sizeSummary"></p>
+                    <p id="quantitySummary"></p>
+                </div>
 
                 <h3>Product Details<i class="fa fa-indent"></i></h3>
                 <br>
@@ -225,6 +230,53 @@
                 ProductImg.src = SmallImg[3].src;
             }
     </script>
+
+<script>
+    function addToCart() {
+      var productName = "Anime Print High Waist Washed Denim Jeans"; // Customize this as needed
+      var sizeSelect = document.getElementById('sizeSelect');
+      var selectedSize = sizeSelect.options[sizeSelect.selectedIndex].text;
+
+      var quantity = parseInt(document.getElementById('quantityInput').value);
+      var itemPrice = parseFloat(document.querySelector('h4').innerText.replace('₱', ''));
+
+      if (selectedSize !== "Select Size") {
+          // Use localStorage to get the current cart items
+          var cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+          // Check if the product with the selected size already exists in the cart
+          var existingProduct = cart.find(item => item.name === productName && item.size === selectedSize);
+
+          if (existingProduct) {
+              // If the product exists, update the quantity
+              existingProduct.quantity += quantity;
+          } else {
+              // If the product doesn't exist, create a new item
+              var item = {
+                  name: productName,
+                  size: selectedSize,
+                  quantity: quantity,
+                  price: itemPrice
+              };
+              cart.push(item);
+          }
+
+          // Update the cart in localStorage
+          localStorage.setItem('cart', JSON.stringify(cart));
+
+          // Display the updated cart summary on the current page
+          var productSummaryElement = document.getElementById('productSummary');
+          var sizeSummaryElement = document.getElementById('sizeSummary');
+          var quantitySummaryElement = document.getElementById('quantitySummary');
+
+          productSummaryElement.textContent = `Product: ${productName}`;
+          sizeSummaryElement.textContent = `Size: ${selectedSize}`;
+          quantitySummaryElement.textContent = `Quantity: ${quantity}`;
+      } else {
+          alert('Please select a size before adding to cart.');
+      }
+  }
+</script>
 	
 </body>
 </html>

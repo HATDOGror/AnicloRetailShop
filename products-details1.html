@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="scriptsforcart/colorpicker.js"></script>
 </head>
 <body>
 
@@ -56,17 +57,19 @@
                 <h1>Japanese Horror Comic Printed</h1>
                 <h4>₱1200.00</h4>
                 <h5>Color:</h5>
-                <button class="btn1-details1">White</button>
-                <button class="btn2-details1">Black</button>
+                <button class="btn1-details1" onclick="selectColor('White')">White</button>
+                <button class="btn2-details1" onclick="selectColor('Black')">Black</button>
                 <br>
-                <input type="number" value="1">
-                <a href="" class="btn">Add to Cart</a>
+                <input type="number" id="quantityInput" value="1">
+                <a href="#" class="btn" onclick="addToCart()">Add to Cart</a>
                 <h3>Product Details<i class="fa fa-indent"></i></h3>
                 <br>
                 <p>Length 72cm/28.34in; bust 114cm/44.88in; sleeve length 61cm/24.01in; shoulder width 55cm/21.65in</p>
             </div>
         </div>
     </div>
+    
+
 	
 	
 <!-----title---->
