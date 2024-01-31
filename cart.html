@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
+    <script src="https://www.paypal.com/sdk/js?client-id=AXAh6NslDMTBlvjZdm2ntuyGfUwDZRCla-x_yDrBMC3V5K5cCdLYu4Nlbsh_5Pa1qpOtVniblwxPzmVi"></script>
 </head>
-<body>
 
+    <body>
     <div class="container">
         <div class="navbar">
             <div class="logo">
@@ -42,45 +42,26 @@
             <tbody id="cart-items"></tbody>
         </table>
 
-        <div class="total-price">
+    <div class="total-price">
             <table>
                 <tr>
                     <td>Subtotal</td>
                     <td id="total-amount">₱0.00</td>
                 </tr>
             </table>
-        </div>
-		<div class="pay-section2">
+    </div>
+
+	<div class="pay-section2">
             <button onclick="showPaymentForm()">Pay Now</button>
-        </div>
-				<div class="pay-section">
-			<div id="payment-form" style="display: none;">
-				<h2>Payment Details</h2>
-				<form id="payment-details-form">
-					<label for="address">Please enter your Shipping Address:</label>
-					<textarea id="address" name="address" rows="4" cols="50" required></textarea>
-
-					<label for="payment-option">Please choose your Payment Option:</label>
-					<select id="payment-option" name="payment-option" onchange="togglePhoneNumberInput()" required>
-						<option value="paypal">PayPal</option>
-						<option value="gcash">Gcash</option>
-					</select>
-
-					
-					<div id="phone-input" style="display: none;">
-						<label for="phone">Enter your Phone Number:</label>
-						<input type="text" id="phone" name="phone" placeholder="Enter your phone number">
-					</div>
-
-					<button type="button" onclick="processPayment()">Submit Payment</button>
-				</form>
     </div>
-</div>
-		</div>
+    </div>
+
+    <div class="small-container cart-page">
+        <div id="paypal-button-container"></div> 
     </div>
 
 
- <div class="footer">
+    <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="footer-col-1">
@@ -128,7 +109,7 @@
     <script>
         var MenuItems = document.getElementById("MenuItems");
         MenuItems.style.maxHeight = "0px";
-
+    
         function menutoggle() {
             if (MenuItems.style.maxHeight == "0px") {
                 MenuItems.style.maxHeight = "200px";
@@ -136,15 +117,55 @@
                 MenuItems.style.maxHeight = "0px";
             }
         }
-
+    
         document.addEventListener('DOMContentLoaded', function () {
             displayCart();
         });
-
+    
+        function showPaymentForm() {
+            renderPayPalButton();
+            var paySection = document.querySelector('.pay-section2');
+            paySection.style.display = 'none'; 
+        }
+    
+        function renderPayPalButton() {
+            var paypalButtonContainer = document.getElementById('paypal-button-container');
+            paypalButtonContainer.innerHTML = ''; 
+    
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    var totalAmountPHP = getTotalAmountFromCart();
+                    var totalAmountUSD = totalAmountPHP * 0.0186343;
+                    totalAmountUSD *= (1 + 0.025 / 100);
+    
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: totalAmountUSD.toFixed(2), 
+                                currency_code: 'USD' 
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        alert('Transaction completed by ' + details.payer.name.given_name);
+                        window.location.href = 'index.html'
+                    });
+                }
+            }).render('#paypal-button-container');}
+            
+    
+        function getTotalAmountFromCart() {
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
+            var totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+            return totalAmount;
+        }
+    
         function addToCart(productName, productPrice) {
             var cart = JSON.parse(localStorage.getItem('cart')) || [];
             var existingItem = cart.find(item => item.name === productName);
-
+    
             if (existingItem) {
                 existingItem.quantity += 1;
             } else {
@@ -155,99 +176,65 @@
                 };
                 cart.push(newItem);
             }
-
+    
             localStorage.setItem('cart', JSON.stringify(cart));
             displayCart();
             alert('Product added to cart successfully!');
         }
-
+    
         function displayCart() {
-    var cart = JSON.parse(localStorage.getItem('cart')) || [];
-    var cartItemsContainer = document.getElementById('cart-items');
-
-    if (cart.length === 0) {
-        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
-    } else {
-        cartItemsContainer.innerHTML = '';
-        cart.forEach(item => {
-            var cartRow = document.createElement('tr');
-            cartRow.innerHTML = `
-                <tr>
-                    <td>${item.name}</td>
-                    <td>${item.size || 'N/A'}</td>
-                    <td><input type="number" value="${item.quantity}" onchange="updateQuantity('${item.name}', this.value)"></td>
-                    <td>₱${(item.price * item.quantity).toFixed(2)}</td>
-                    <td><button onclick="removeItem('${item.name}')" style="background-color: purple; color: white;">
-                    <i class="fas fa-trash-alt"></i>
-                    </button></td>
-                </tr>
-            `;
-            cartItemsContainer.appendChild(cartRow);
-        });
-    }
-
-    updateTotal();
-}
-
-  function updateQuantity(productName, newQuantity) {
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
+            var cartItemsContainer = document.getElementById('cart-items');
+    
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+            } else {
+                cartItemsContainer.innerHTML = '';
+                cart.forEach(item => {
+                    var cartRow = document.createElement('tr');
+                    cartRow.innerHTML = `
+                        <tr>
+                            <td>${item.name}</td>
+                            <td>${item.size || 'N/A'}</td>
+                            <td><input type="number" value="${item.quantity}" onchange="updateQuantity('${item.name}', this.value)"></td>
+                            <td>₱${(item.price * item.quantity).toFixed(2)}</td>
+                            <td><button onclick="removeItem('${item.name}')" style="background-color: purple; color: white;">
+                            <i class="fas fa-trash-alt"></i>
+                            </button></td>
+                        </tr>
+                    `;
+                    cartItemsContainer.appendChild(cartRow);
+                });
+            } 
+            updateTotal();
+        }
+    
+        function updateQuantity(productName, newQuantity) {
             var cart = JSON.parse(localStorage.getItem('cart')) || [];
             var selectedItem = cart.find(item => item.name === productName);
-
+    
             if (selectedItem) {
                 selectedItem.quantity = parseInt(newQuantity);
                 localStorage.setItem('cart', JSON.stringify(cart));
                 displayCart();
             }
         }
-
+    
         function removeItem(productName) {
-    var cart = JSON.parse(localStorage.getItem('cart')) || [];
-    var indexToRemove = cart.findIndex(item => item.name === productName);
-    if (indexToRemove !== -1) {
-        cart.splice(indexToRemove, 1);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        displayCart();
-    }
-}
-
-
-
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
+            var indexToRemove = cart.findIndex(item => item.name === productName);
+            if (indexToRemove !== -1) {
+                cart.splice(indexToRemove, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                displayCart();
+            }
+        }
+    
         function updateTotal() {
             var cart = JSON.parse(localStorage.getItem('cart')) || [];
             var totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-
             document.getElementById('total-amount').innerText = '₱' + totalAmount.toFixed(2);
         }
-		 function showPaymentForm() {
-            var paymentForm = document.getElementById('payment-form');
-            paymentForm.style.display = 'block';
-        }
-
-        function processPayment() {
-            alert('Payment processed successfully!');
-            
-        }
-		function togglePhoneNumberInput() {
-		var paymentOption = document.getElementById('payment-option');
-		var phoneInput = document.getElementById('phone-input');
-
-		if (paymentOption.value === 'gcash' || paymentOption.value === 'paypal') {
-			phoneInput.style.display = 'block';
-		} else {
-			phoneInput.style.display = 'none';
-			}
-		}
-		function processPayment() {
-			var addressInput = document.getElementById('address');
-			var phoneInput = document.getElementById('phone');
-
-			if (addressInput.value.trim() === '' || phoneInput.value.trim() === '') {
-				alert('Please enter the necessary field.');
-				return; 
-			}
-			alert('Payment processed successfully!');
-			window.location.href = 'index.html';
-		}
-    </script>
-</body>
+        </script>
+    </body>
 </html>
