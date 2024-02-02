@@ -3,39 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account - AniClo</title>
+    <title>All Products - AniClo</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <script src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="emailsender.js"></script>
 </head>
 <body>
-
-    <div class="container">
         <div class="navbar">
-            <div class="logo">
-                <img src="aniclo-black.png" alt="AniClo logo" width="150px">
-            </div>
             <nav>
                 <ul id="MenuItems">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="account.html">Account</a></li>
+                    <li></li>
                 </ul>
             </nav>
-            <a href="cart.html"><img src="cart.png" width="30px" height="30px"></a>
-            <img src="menu.png" class="menu-icon" onclick="menutoggle()">
         </div>
-    </div>
 
-    <div class="account-page">
-    <div class="container">
-        <div class="row">
-            <div class="col-2">
-                <img src="anime1.png" width="100%">
-            </div>
+
+        <div class="account-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-2">
+                        <img src="anime1.png" width="100%">
+                    </div>
             <div class="col-2">
                 <div class="form-container">
                     <div class="form-btn">
@@ -44,18 +32,18 @@
                         <hr id="Indicator">
                     </div>
 
-                    <form id="LoginForm">
-                        <input type="text" placeholder="Username">
-                        <input type="password" placeholder="Password">
+                    <form id="LoginForm" method="POST" action="loginform.php">
+                        <input type="text" name="logusername" placeholder="Username">
+                        <input type="password" name="logpassword" placeholder="Password">
                         <button type="submit" class="btn">Login</button>
                         <a href="">Forgot Password</a>
                     </form>
-
-                    <form id="RegForm">
-                        <input type="text" id="userName" placeholder="Username" required>
-                        <input type="email" id="toEmail" placeholder="Email" required>
-                        <input type="password" placeholder="Password" required>
-                        <button type="button" onclick="sendMail();" class="btn">Register</button>
+                    
+                    <form id="RegForm" method="POST" action="database.php">
+                        <input type="text"  name="regusername" placeholder="Username">
+                        <input type="email"  name="regemail" placeholder="Email">
+                        <input type="password"  name="regpassword" placeholder="Password">
+                        <button type="submit" name="regbtn" value="INSERT" class="btn">Register</button>
                     </form>
                 </div>
             </div>
@@ -104,53 +92,66 @@
             <p class="copyright">Copyright 2023 - Group 5 </p>
         </div>
     </div>
-<script>
-    var MenuItems = document.getElementById("MenuItems");
-    MenuItems.style.maxHeight = "0px";
+    
+           <script>
+                var MenuItems = document.getElementById("MenuItems");
+                MenuItems.style.maxHeight = "0px";
 
-    function menutoggle() {
-        if (MenuItems.style.maxHeight == "0px") {
-            MenuItems.style.maxHeight = "200px";
-        } else {
-            MenuItems.style.maxHeight = "0px";
-        }
-    }
+                function menutoggle() {
+                    if (MenuItems.style.maxHeight == "0px") {
+                        MenuItems.style.maxHeight = "200px";
+                    } else {
+                        MenuItems.style.maxHeight = "0px";
+                    }
+                }
 
-    var LoginForm = document.getElementById("LoginForm");
-    var RegForm = document.getElementById("RegForm");
-    var Indicator = document.getElementById("Indicator");
+                var LoginForm = document.getElementById("LoginForm");
+                var RegForm = document.getElementById("RegForm");
+                var Indicator = document.getElementById("Indicator");
 
-    function register() {
-        RegForm.style.transform = "translateX(0px)";
-        LoginForm.style.transform = "translateX(0px)";
-        Indicator.style.transform = "translateX(100px)";
-    }
+                function register() {
+                    RegForm.style.transform = "translateX(0px)";
+                    LoginForm.style.transform = "translateX(0px)";
+                    Indicator.style.transform = "translateX(100px)";
+                }
 
-    function login() {
-        RegForm.style.transform = "translateX(300px)";
-        LoginForm.style.transform = "translateX(300px)";
-        Indicator.style.transform = "translateX(0px)";
-    }
+                function login() {
+                    RegForm.style.transform = "translateX(300px)";
+                    LoginForm.style.transform = "translateX(300px)";
+                    Indicator.style.transform = "translateX(0px)";
+                }
 
-    function sendMail(){
-    (function(){
-            emailjs.init("5RsGZ5y1ecwvyp_lo"); 
-    })();
+                RegForm.addEventListener('regbtn', function (e) {
+                e.preventDefault();
+                var username = RegForm.querySelector('input[type="text"]').value;
+                var email = RegForm.querySelector('input[type="email"]').value;
+                var password = RegForm.querySelector('input[type="password"]').value;
 
-    let params = {
-        to_Email: document.getElementById("toEmail").value,
-        to_Name: document.getElementById("userName").value,
-    };
+                var xhr = new XMLHttpRequest();
 
-    emailjs.send("service_54ylrco", "template_brrbl0m", params)
-    .then( res => {
-        alert("An email has been sent");
-    })
-    .catch(function (error){
-        console.error('Failed to send email:', error); 
-        alert("Failed to register. Please try again later."); 
-    });
-}
-</script>
-</body>
+                xhr.open('POST', 'database.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            var response = xhr.responseText;
+                            alert(response);
+
+                            if (response === 'Successfully registered!') {
+                                hideForms();
+                                window.location.href = 'account.html';
+                            }
+                        } else {
+                            alert('Error: Unable to register. Please try again.');
+                        }
+                    }
+                };
+
+                xhr.send('regusername=' + encodeURIComponent(username) +
+                        '&regemail=' + encodeURIComponent(email) +
+                        '&regpassword=' + encodeURIComponent(password));
+            }); 
+        </script>
+    </body>
 </html>

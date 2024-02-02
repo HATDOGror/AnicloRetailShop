@@ -1,4 +1,3 @@
-<!--Gonzales & Lagado-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,10 +18,10 @@
             </div>
             <nav>
                 <ul id="MenuItems">
-                    <li><a href="index.html">Home</a></li>
+                     <li><a href="index.html">Home</a></li>
                     <li><a href="products.html">Products</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="account.html">Account</a></li>
+					<li><a href="account.html">Logout</a></li>
                 </ul>
             </nav>
             <a href="cart.html"><img src="cart.png" width="30px" height="30px"></a>
@@ -69,10 +68,6 @@
         </div>
     </div>
     
-
-	
-	
-<!-----title---->
     <div class="small-container">
         <div class="row row-2">
             <h2>Related Products</h2>
@@ -80,7 +75,6 @@
         </div>
     </div>
 
-<!-----products---->
     <div class="small-container">
         <div class="row">
             <div class="col-4">
@@ -176,7 +170,7 @@
             <p class="copyright">Copyright 2023 - Group 5 </p>
         </div>
     </div>
-<!-----js for toggle menu----->
+
     <script>
         var MenuItems = document.getElementById("MenuItems");
 
@@ -194,28 +188,26 @@
         }
     </script>
 
-<!----js for product gallery---->
-    <script>
-        var ProductImg = document.getElementById("ProductImg");
-        var SmallImg = document.getElementsByClassName("small-img");
+        <script>
+            var ProductImg = document.getElementById("ProductImg");
+            var SmallImg = document.getElementsByClassName("small-img");
 
-            SmallImg[0].onclick = function()
-            {
-                ProductImg.src = SmallImg[0].src;
-            }
-            SmallImg[1].onclick = function()
-            {
-                ProductImg.src = SmallImg[1].src;
-            }
-            SmallImg[2].onclick = function()
-            {
-                ProductImg.src = SmallImg[2].src;
-            }
-            SmallImg[3].onclick = function()
-            {
-                ProductImg.src = SmallImg[3].src;
-            }
-    </script>
-	
-</body>
+                SmallImg[0].onclick = function()
+                {
+                    ProductImg.src = SmallImg[0].src;
+                }
+                SmallImg[1].onclick = function()
+                {
+                    ProductImg.src = SmallImg[1].src;
+                }
+                SmallImg[2].onclick = function()
+                {
+                    ProductImg.src = SmallImg[2].src;
+                }
+                SmallImg[3].onclick = function()
+                {
+                    ProductImg.src = SmallImg[3].src;
+                }
+        </script>
+	</body>
 </html>
