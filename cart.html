@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Products - AniClo</title>
+    <title>AniClo-Cart</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="https://www.paypal.com/sdk/js?client-id=AXAh6NslDMTBlvjZdm2ntuyGfUwDZRCla-x_yDrBMC3V5K5cCdLYu4Nlbsh_5Pa1qpOtVniblwxPzmVi"></script>
 </head>
-<body>
+
+    <body>
     <div class="container">
         <div class="navbar">
             <div class="logo">
@@ -54,22 +56,25 @@
     </div>
 	<br>
 	<br>
-            <table>
-                <tr>
-                    <th>Product</th>
-                    <th>Size</th>
-                    <th>Quantity</th>
-                    <th>Subtotal</th>
-                    <th>Status</th>
-                </tr>
-                <tbody id="paid-cart-items"></tbody>
-            </table>
-        </div>
+		<table>
+		<tr>
+			<th>Product</th>
+			<th>Size</th>
+			<th>Quantity</th>
+			<th>Subtotal</th>
+			<th>Status</th>
+		</tr>
+		<tbody id="paid-cart-items"></tbody>
+		</table>
     </div>
+	</div>
+	
+
 	
     <div class="small-container cart-page">
         <div id="paypal-button-container"></div> 
     </div>
+
 
     <div class="footer">
         <div class="container">
@@ -114,6 +119,8 @@
 		
     </div>
 
+
+
     <script>
         var MenuItems = document.getElementById("MenuItems");
         MenuItems.style.maxHeight = "0px";
@@ -130,28 +137,40 @@
             displayCart();
         });
     
-		
+		//second table for paid items
 		function moveCartItemsToPaySection() {
 			var cart = JSON.parse(localStorage.getItem('cart')) || [];
 			var paidCartItemsContainer = document.getElementById('paid-cart-items');
+			
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "itemsSold.php", true);
+			xhr.setRequestHeader("Content-Type", "application/json");
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState === 4 && xhr.status === 200) {
+					console.log(xhr.responseText);
+				}
+			};
 
 			cart.forEach(item => {
 				var cartRow = document.createElement('tr');
 				cartRow.innerHTML = `
 					<td>${item.name}</td>
-					<td>${item.size || 'N/A'}</td>
+					<td>${item.size || 'Free Size'}</td>
 					<td>${item.quantity}</td>
 					<td>₱${(item.price * item.quantity).toFixed(2)}</td>
 					<td>Confirmed</td>
 				`;
 				paidCartItemsContainer.appendChild(cartRow);
 			});
-
+			xhr.send(JSON.stringify(cart));
 			localStorage.removeItem('cart');
             displayCart(); 
 		}
+		
 
-    
+
+		
+		//paypal integration - payment gateway
         function renderPayPalButton() {
             var paypalButtonContainer = document.getElementById('paypal-button-container');
             paypalButtonContainer.innerHTML = ''; 
@@ -173,20 +192,39 @@
                 },
 						onApprove: function(data, actions) {
 						return actions.order.capture().then(function(details) {
-						alert('Order Completed, Thank You! ' + details.payer.name.given_name);
+						 var paypalEmail = details.payer.email_address;
 						moveCartItemsToPaySection(); 
+						sendMail(paypalEmail);
 						
 					});
 				}
             }).render('#paypal-button-container');}
-            
-    
+			
+			
+		// order confirmation thru paypal	
+		function sendMail(paypalEmail) {
+			emailjs.init("5RsGZ5y1ecwvyp_lo"); 
+
+			let params = {
+				to_Email: paypalEmail,
+			};
+			emailjs.send("service_54ylrco", "template_brrbl0m", params)
+				.then(function (response) {
+					alert("Payment Confirmation Sent, Thank You for purchasing!");
+				}, function (error) {
+					console.error('Failed to send email:', error);
+					alert("Failed to send email. Please try again later.");
+				});
+		}
+
+		// total amount
         function getTotalAmountFromCart() {
             var cart = JSON.parse(localStorage.getItem('cart')) || [];
             var totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0);
             return totalAmount;
         }
-    
+		
+		//add to cart
         function addToCart(productName, productPrice) {
             var cart = JSON.parse(localStorage.getItem('cart')) || [];
             var existingItem = cart.find(item => item.name === productName);
@@ -206,7 +244,9 @@
             displayCart();
             alert('Product added to cart successfully!');
         }
-    
+		
+		
+		//display cart on first table
         function displayCart() {
             var cart = JSON.parse(localStorage.getItem('cart')) || [];
             var cartItemsContainer = document.getElementById('cart-items');
@@ -220,7 +260,7 @@
                     cartRow.innerHTML = `
                         <tr>
                             <td>${item.name}</td>
-                            <td>${item.size || 'N/A'}</td>
+                            <td>${item.size || 'Free Size'}</td>
                             <td><input type="number" value="${item.quantity}" onchange="updateQuantity('${item.name}', this.value)"></td>
                             <td>₱${(item.price * item.quantity).toFixed(2)}</td>
                             <td><button onclick="removeItem('${item.name}')" style="background-color: purple; color: white;">
@@ -234,6 +274,8 @@
             updateTotal();
         }
     
+		
+		//update quantity
         function updateQuantity(productName, newQuantity) {
             var cart = JSON.parse(localStorage.getItem('cart')) || [];
             var selectedItem = cart.find(item => item.name === productName);
@@ -245,6 +287,7 @@
             }
         }
     
+		//remove item
         function removeItem(productName) {
             var cart = JSON.parse(localStorage.getItem('cart')) || [];
             var indexToRemove = cart.findIndex(item => item.name === productName);
@@ -255,11 +298,37 @@
             }
         }
     
+		
+		//update total
         function updateTotal() {
             var cart = JSON.parse(localStorage.getItem('cart')) || [];
             var totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0);
             document.getElementById('total-amount').innerText = '₱' + totalAmount.toFixed(2);
         }
-        </script>
-    </body>
+        
+		
+		
+		//database
+		function storeCartItemsInDatabase() {
+			var cart = JSON.parse(localStorage.getItem('cart')) || [];
+			var cartData = JSON.stringify(cart);
+			var url = 'cart.php?cart=' + encodeURIComponent(cartData);
+
+
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                console.log('SUCCESSFUL', data);
+            })
+            .catch(error => {
+                console.error('ERROR', error);
+            });
+    }
+		</script>
+	</body>
 </html>

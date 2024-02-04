@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 </head>
 <body>
+
+ 
         <div class="navbar">
             <nav>
                 <ul id="MenuItems">
@@ -18,12 +20,12 @@
         </div>
 
 
-        <div class="account-page">
-            <div class="container">
-                <div class="row">
-                    <div class="col-2">
-                        <img src="anime1.png" width="100%">
-                    </div>
+    <div class="account-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <img src="anime1.png" width="100%">
+            </div>
             <div class="col-2">
                 <div class="form-container">
                     <div class="form-btn">
@@ -92,66 +94,37 @@
             <p class="copyright">Copyright 2023 - Group 5 </p>
         </div>
     </div>
-    
-           <script>
-                var MenuItems = document.getElementById("MenuItems");
-                MenuItems.style.maxHeight = "0px";
 
-                function menutoggle() {
-                    if (MenuItems.style.maxHeight == "0px") {
-                        MenuItems.style.maxHeight = "200px";
-                    } else {
-                        MenuItems.style.maxHeight = "0px";
-                    }
-                }
 
-                var LoginForm = document.getElementById("LoginForm");
-                var RegForm = document.getElementById("RegForm");
-                var Indicator = document.getElementById("Indicator");
 
-                function register() {
-                    RegForm.style.transform = "translateX(0px)";
-                    LoginForm.style.transform = "translateX(0px)";
-                    Indicator.style.transform = "translateX(100px)";
-                }
+   <script>
+    var MenuItems = document.getElementById("MenuItems");
+    MenuItems.style.maxHeight = "0px";
 
-                function login() {
-                    RegForm.style.transform = "translateX(300px)";
-                    LoginForm.style.transform = "translateX(300px)";
-                    Indicator.style.transform = "translateX(0px)";
-                }
+    function menutoggle() {
+        if (MenuItems.style.maxHeight == "0px") {
+            MenuItems.style.maxHeight = "200px";
+        } else {
+            MenuItems.style.maxHeight = "0px";
+        }
+    }
 
-                RegForm.addEventListener('regbtn', function (e) {
-                e.preventDefault();
-                var username = RegForm.querySelector('input[type="text"]').value;
-                var email = RegForm.querySelector('input[type="email"]').value;
-                var password = RegForm.querySelector('input[type="password"]').value;
+    var LoginForm = document.getElementById("LoginForm");
+    var RegForm = document.getElementById("RegForm");
+    var Indicator = document.getElementById("Indicator");
 
-                var xhr = new XMLHttpRequest();
+    function register() {
+        RegForm.style.transform = "translateX(0px)";
+        LoginForm.style.transform = "translateX(0px)";
+        Indicator.style.transform = "translateX(100px)";
+    }
 
-                xhr.open('POST', 'database.php', true);
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    function login() {
+        RegForm.style.transform = "translateX(300px)";
+        LoginForm.style.transform = "translateX(300px)";
+        Indicator.style.transform = "translateX(0px)";
+    }
 
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === 4) {
-                        if (xhr.status === 200) {
-                            var response = xhr.responseText;
-                            alert(response);
-
-                            if (response === 'Successfully registered!') {
-                                hideForms();
-                                window.location.href = 'account.html';
-                            }
-                        } else {
-                            alert('Error: Unable to register. Please try again.');
-                        }
-                    }
-                };
-
-                xhr.send('regusername=' + encodeURIComponent(username) +
-                        '&regemail=' + encodeURIComponent(email) +
-                        '&regpassword=' + encodeURIComponent(password));
-            }); 
-        </script>
-    </body>
+		</script>
+	</body>
 </html>
