@@ -5,28 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details - AniClo</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../HTML_CSS_DATABASE/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <script src="scriptsforcart/addtocart.js"></script>
+  
 </head>
 <body>
 
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <a href="index.html"><img src="aniclo-black.png" width="150px"></a>
+                <a href="../HTML_CSS_DATABASE/index.html"><img src="../Images/aniclo-black.png" width="150px"></a>
             </div>
             <nav>
                 <ul id="MenuItems">
-                     <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="about.html">About</a></li>
-					<li><a href="account.html">Logout</a></li>
+                    <li><a href="../HTML_CSS_DATABASE/index.html">Home</a></li>
+                    <li><a href="../HTML_CSS_DATABASE/products.html">Products</a></li>
+                    <li><a href="../HTML_CSS_DATABASE/about.html">About</a></li>
+					<li><a href="../HTML_CSS_DATABASE/account.html">Logout</a></li>
                 </ul>
             </nav>
-            <a href="cart.html"><img src="cart.png" width="30px" height="30px"></a>
-            <img src="menu.png" class="menu-icon" onclick="menutoggle()">
+            <a href="../HTML_CSS_DATABASE/cart.html"><img src="../Images/cart.png" width="30px" height="30px"></a>
+            <img src="../Images/menu.png" class="menu-icon" onclick="menutoggle()">
         </div>
     </div>
 
@@ -34,35 +34,39 @@
     <div class="small-container single-product">
         <div class="row">
             <div class="col-2">
-                <img src="AnimeClothing4-1.jpg" width="100%" id="ProductImg">
+                <img src="../Images/AnimeClothing5-1.jpg" width="100%" id="ProductImg">
 
                 <div class="small-img-row">
                     <div class="small-img-col">
-                        <img src="AnimeClothing4-1.jpg" width="100%" class="small-img">
+                        <img src="../Images/AnimeClothing5-1.jpg" width="100%" class="small-img">
                     </div>
                     <div class="small-img-col">
-                        <img src="AnimeClothing4-2.jpg" width="100%" class="small-img">
+                        <img src="../Images/AnimeClothing5-2.jpg" width="100%" class="small-img">
                     </div>
                     <div class="small-img-col">
-                        <img src="AnimeClothing4-3.jpg" width="100%" class="small-img">
+                        <img src="../Images/AnimeClothing5-3.jpg" width="100%" class="small-img">
                     </div>
                     <div class="small-img-col">
-                        <img src="AnimeClothing4-4.jpg" width="100%" class="small-img">
+                        <img src="../Images/AnimeClothing5-4.jpg" width="100%" class="small-img">
                     </div>
                 </div>
 
             </div>
             <div class="col-2">
-                <p>Home / Sweatshirt</p>
-                <h1>Oversized Horror Comic Back Printed White Sweatshirt</h1>
-                <h4>₱2300.00</h4>
-                <input type="number" value="1">
-                <a href="cart.html" class="btn">Add to Cart</a>
+                <p>Home / T-shirt</p>
+                <h1>Horror Comic Printed Fake Two Pieces Stitching T-Shirt</h1>
+                <h4>₱2800.00</h4>
+                <h5>Color:</h5>
+                <button class="btn1-details1" onclick="selectColor('Gray')">Gray</button>
+                <button class="btn2-details1" onclick="selectColor('Black')">Black</button>
+                <br>
+                <input type="number" id="quantityInput" value="1">
+                <a href="#" class="btn" onclick="addToCart()">Add to Cart</a>
 
                 <h3>Product Details<i class="fa fa-indent"></i></h3>
                 <br>
                 <p>
-                    Free size  length 70cm/27.55in; bust 114cm/44.88in; 
+                    Free size  length 68cm/26.77in; bust 114cm/44.88in; sleeve length 60cm/23.62in; 
                 </p>
             </div>
         </div>
@@ -81,7 +85,7 @@
     <div class="small-container">
         <div class="row">
             <div class="col-4">
-                <img src="AnimeClothing3.jpg">
+                <img src="../Images/AnimeClothing3.jpg">
                 <h4>Japanese Anime Colored Black TShirt</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -93,7 +97,7 @@
                 <p>₱1200.00</p>
             </div>
             <div class="col-4">
-                <img src="AnimeClothing4.jpeg">
+                <img src="../Images/AnimeClothing4.jpeg">
                 <h4>Japanese Quadratic Elements Diffuse Exhibition TShirt</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -105,7 +109,7 @@
                 <p>₱1300.00</p>
             </div>
             <div class="col-4">
-                <img src="AnimeClothing5.jpeg">
+                <img src="../Images/AnimeClothing5.jpeg">
                 <h4>Slight Cartoon Anime Print White</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -117,7 +121,7 @@
                 <p>₱1100.00</p>
             </div>
             <div class="col-4">
-                <img src="AnimeClothing6.jpeg">
+                <img src="../Images/AnimeClothing6.jpeg">
                 <h4>Summer Lolita Style Women Shirt Ins Dark Retro Anime Painting</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -130,8 +134,6 @@
             </div>
         </div>
     </div>
-
-<!---- footer ---->
     <div class="footer">
         <div class="container">
             <div class="row">
@@ -139,14 +141,14 @@
                     <h3>Download Our App</h3>
                     <p>Download App for Android and IOS mobile phone.</p>
                     <div class="app-logo">
-						<a href="https://www.appcracy.com/app/google-play-store/?utm_source=bing&utm_medium=cpc&utm_campaign=PS_ASIA_M05&utm_term=play%20store&utm_content=PS">
-                        <img src="play-store.png">
-                        <img src="app-store.png">
-						</a>
+                        <a href="https://www.appcracy.com/app/google-play-store/?utm_source=bing&utm_medium=cpc&utm_campaign=PS_ASIA_M05&utm_term=play%20store&utm_content=PS">
+                        <img src="../Images/play-store.png">
+                        <img src="../Images/app-store.png">
+                        </a>
                     </div>
                 </div>
                 <div class="footer-col-2">
-                    <img src="aniclo-white.png">
+                    <img src="../Images/aniclo-white.png">
                     <p>Our Purpose is to give a good Aesthetically Looking
                     to everyone by also loving anime at the same time.</p>
                 </div>
@@ -213,5 +215,48 @@
                 ProductImg.src = SmallImg[3].src;
             }
     </script>
+	
+<script>
+    var selectedColor = ''; // Variable to store the selected color
+
+function selectColor(color) {
+    selectedColor = color;
+}
+
+function addToCart() {
+    var productName = "Horror Comic Printed Fake Two Pieces Stitching T-Shirt"; // You can customize this
+    var quantity = parseInt(document.getElementById('quantityInput').value);
+    var itemPrice = parseFloat(document.querySelector('h4').innerText.replace('₱', ''));
+
+    if (selectedColor) {
+        // Use localStorage to get the current cart items
+        var cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Check if the product with the selected color already exists in the cart
+        var existingProduct = cart.find(item => item.name === productName + ' - ' + selectedColor);
+
+        if (existingProduct) {
+            // If the product exists, update the quantity
+            existingProduct.quantity += quantity;
+        } else {
+            // If the product doesn't exist, create a new item
+            var item = {
+                name: productName + ' - ' + selectedColor,
+                quantity: quantity,
+                price: itemPrice
+            };
+            cart.push(item);
+        }
+
+        // Update the cart in localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Redirect to the cart page
+        window.location.href = '../HTML_CSS_DATABASE/index.html';
+    } else {
+        alert('Please select a color before adding to cart.');
+    }
+}
+</script>
 </body>
 </html>

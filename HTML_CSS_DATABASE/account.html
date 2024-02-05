@@ -3,28 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Products - AniClo</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Sign Up to Aniclo</title>
+    <link rel="stylesheet" href="../HTML_CSS_DATABASE/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 </head>
 <body>
-
- 
-        <div class="navbar">
-            <nav>
-                <ul id="MenuItems">
-                    <li></li>
-                </ul>
-            </nav>
-        </div>
-
-
     <div class="account-page">
     <div class="container">
         <div class="row">
             <div class="col-2">
-                <img src="anime1.png" width="100%">
+                <img src="../Images/anime1.png" width="100%">
             </div>
             <div class="col-2">
                 <div class="form-container">
@@ -34,14 +23,14 @@
                         <hr id="Indicator">
                     </div>
 
-                    <form id="LoginForm" method="POST" action="loginform.php">
+                    <form id="LoginForm" method="POST" action="../HTML_CSS_DATABASE/loginform.php">
                         <input type="text" name="logusername" placeholder="Username">
                         <input type="password" name="logpassword" placeholder="Password">
                         <button type="submit" class="btn">Login</button>
                         <a href="">Forgot Password</a>
                     </form>
                     
-                    <form id="RegForm" method="POST" action="database.php">
+                    <form id="RegForm" method="POST" action="../HTML_CSS_DATABASE/database.php">
                         <input type="text"  name="regusername" placeholder="Username">
                         <input type="email"  name="regemail" placeholder="Email">
                         <input type="password"  name="regpassword" placeholder="Password">
@@ -53,52 +42,52 @@
     </div>
 </div>
 
-     <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col-1">
-                    <h3>Download Our App</h3>
-                    <p>Download App for Android and IOS mobile phone.</p>
-                    <div class="app-logo">
-						<a href="https://www.appcracy.com/app/google-play-store/?utm_source=bing&utm_medium=cpc&utm_campaign=PS_ASIA_M05&utm_term=play%20store&utm_content=PS">
-                        <img src="play-store.png">
-                        <img src="app-store.png">
-						</a>
-                    </div>
-                </div>
-                <div class="footer-col-2">
-                    <img src="aniclo-white.png">
-                    <p>Our Purpose is to give a good Aesthetically Looking
-                    to everyone by also loving anime at the same time.</p>
-                </div>
-                <div class="footer-col-3">
-                    <h3>Useful Links</h3>
-                    <ul>
-                        <li><a href="https://dealspotr.com/promo-codes/animeape.com">Coupon</a></li>
-                        <li><a href ="https://myotakuworld.com/">Blog Post</a></li>
-                        <li><a href = "https://animeandthings.com/refunds-returns-policy/">Return Policy</a></li>
-                        <li><a href ="https://www.affilorama.com/blog/best-anime-affiliate-programs">Join Affiliate</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col-4">
-                    <h3>Follow Us</h3>
-                    <ul>
-                        <li><a href="https://www.facebook.com/AnimeCorner.Official/">Facebook</a></li>
-                        <li><a href ="https://twitter.com/GomuAdventures">Twitter</a></li>
-                        <li><a href = "https://www.instagram.com/anime/">Instagram</a></li>
-                        <li><a href ="https://www.youtube.com/@crunchyroll">Youtube</a></li>
-                    </ul>
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1">
+                <h3>Download Our App</h3>
+                <p>Download App for Android and IOS mobile phone.</p>
+                <div class="app-logo">
+                    <a href="https://www.appcracy.com/app/google-play-store/?utm_source=bing&utm_medium=cpc&utm_campaign=PS_ASIA_M05&utm_term=play%20store&utm_content=PS">
+                    <img src="../Images/play-store.png">
+                    <img src="../Images/app-store.png">
+                    </a>
                 </div>
             </div>
-            <hr>
-            <p class="copyright">Copyright 2023 - Group 5 </p>
+            <div class="footer-col-2">
+                <img src="../Images/aniclo-white.png">
+                <p>Our Purpose is to give a good Aesthetically Looking
+                to everyone by also loving anime at the same time.</p>
+            </div>
+            <div class="footer-col-3">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="https://dealspotr.com/promo-codes/animeape.com">Coupon</a></li>
+                    <li><a href ="https://myotakuworld.com/">Blog Post</a></li>
+                    <li><a href = "https://animeandthings.com/refunds-returns-policy/">Return Policy</a></li>
+                    <li><a href ="https://www.affilorama.com/blog/best-anime-affiliate-programs">Join Affiliate</a></li>
+                </ul>
+            </div>
+            <div class="footer-col-4">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/AnimeCorner.Official/">Facebook</a></li>
+                    <li><a href ="https://twitter.com/GomuAdventures">Twitter</a></li>
+                    <li><a href = "https://www.instagram.com/anime/">Instagram</a></li>
+                    <li><a href ="https://www.youtube.com/@crunchyroll">Youtube</a></li>
+                </ul>
+            </div>
         </div>
+        <hr>
+        <p class="copyright">Copyright 2023 - Group 5 </p>
     </div>
+</div>
 
 
 
    <script>
-    var MenuItems = document.getElementById("MenuItems");
+    var MenuItems = document.getElementById("RegForm");
     MenuItems.style.maxHeight = "0px";
 
     function menutoggle() {

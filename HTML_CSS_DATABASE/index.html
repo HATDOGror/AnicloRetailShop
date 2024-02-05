@@ -3,37 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AniClo | ECommerce Website Design</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Welcome to Aniclo</title>
+    <link rel="stylesheet" href="../HTML_CSS_DATABASE/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 </head>
 <body>
     <div class="header">
-    <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <a href="index.html"><img src="aniclo-black.png" width="150px"></a>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="../Images/aniclo-black.png" width="150px">
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                         <li><a href="../HTML_CSS_DATABASE/index.html">Home</a></li>
+                        <li><a href="../HTML_CSS_DATABASE/products.html">Products</a></li>
+                        <li><a href="../HTML_CSS_DATABASE/about.html">About</a></li>
+                        <li><a href="../HTML_CSS_DATABASE/account.html">Logout</a></li>
+                    </ul>
+                </nav>
+                <a href="../Images/cart.html"><img src="../Images/cart.png" width="30px" height="30px"></a>
+                <img src="../Images/menu.png" class="menu-icon" onclick="menutoggle()">
             </div>
-            <nav>
-                <ul id="MenuItems">
-                     <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="about.html">About</a></li>
-					<li><a href="account.html">Logout</a></li>
-                </ul>
-            </nav>
-            <a href="cart.html"><img src="cart.png" width="30px" height="30px"></a>
-            <img src="menu.png" class="menu-icon" onclick="menutoggle()">
-        </div>
+        
         <div class="row">
             <div class="col-2">
                 <h1>Become Real as Anime<br>Aesthetically!</h1>
                 <p>Giving up is what kills people.</p>
-                <a href="products.html" class="btn">Explore Now &#8594</a>
+                <a href="../HTML_CSS_DATABASE/products.html" class="btn">Explore Now &#8594</a>
             </div>
             <div class="col-2">
-                <img src="anime1.png">
+                <img src="../Images/anime1.png">
             </div>
         </div>
     </div>
@@ -44,13 +45,13 @@
         <div class="small-container">
             <div class="row">
                 <div class="col-3">
-                    <img src="category1.jpg">
+                    <img src="../Images/category1.jpg">
                 </div>
                 <div class="col-3">
-                    <img src="category2.jpg">
+                    <img src="../Images/category2.jpg">
                 </div>
                 <div class="col-3">
-                    <img src="category3.jpg">
+                    <img src="../Images/category3.jpg">
                 </div>
             </div>
         </div>
@@ -59,8 +60,8 @@
         <h2 class="title">Featured Products</h2>
         <div class="row">
             <div class="col-4">
-                <a href="products-details1.html"><img src="AnimeClothing1-1.jpg"></a>
-                <a href="products-details1.html"><h4>Japanese Horror Comic Printed</h4></a>
+                <a href="../HTML_CSS_DATABASE/products-details1.html"><img src="../Images/AnimeClothing1-1.jpg"></a>
+                <a href="../HTML_CSS_DATABASE/products-details1.html"><h4>Japanese Horror Comic Printed</h4></a>
                 <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -71,8 +72,8 @@
                 <p>₱1200.00</p>
             </div>
             <div class="col-4">
-                <a href="products-details2.html"><img src="AniClo-bag-1-1.jpg"></a>
-                <a href="products-details2.html"><h4>One Punch Man Anime Head Canvas Shoulder Bag</h4></a>
+                <a href="../HTML_CSS_DATABASE/products-details2.html"><img src="../Images/AniClo-bag-1-1.jpg"></a>
+                <a href="../HTML_CSS_DATABASE/products-details2.html"><h4>One Punch Man Anime Head Canvas Shoulder Bag</h4></a>
                 <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -83,8 +84,8 @@
                 <p>₱1400.00</p>
             </div>
             <div class="col-4">
-                <a href="products-details3.html"><img src="AnimeClothing2-1.jpg"></a>
-                <a href="products-details3.html"><h4>Slight Cartoon Anime Print Black</h4></a>
+                <a href="../HTML_CSS_DATABASE/products-details3.html"><img src="../Images/AnimeClothing2-1.jpg"></a>
+                <a href="../HTML_CSS_DATABASE/products-details3.html"><h4>Slight Cartoon Anime Print Black</h4></a>
                 <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -95,8 +96,8 @@
                 <p>₱1100.00</p>
             </div>
             <div class="col-4">
-                <a href="products-details4.html"><img src="AnimeClothing3-1.jpg"></a>
-                <a href="products-details4.html"><h4>Anime Face Print Tumblr Aesthetic Loose Blue Jeans</h4></a>
+                <a href="../HTML_CSS_DATABASE/products-details4.html"><img src="../Images/AnimeClothing3-1.jpg"></a>
+                <a href="../HTML_CSS_DATABASE/products-details4.html"><h4>Anime Face Print Tumblr Aesthetic Loose Blue Jeans</h4></a>
                 <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -110,7 +111,7 @@
         <h2 class="title">Latest Products</h2>
         <div class="row">
             <div class="col-4">
-                <a href="products-details5.html"><img src="AnimeClothing4-1.jpg"></a>
+                <a href="../HTML_CSS_DATABASE/products-details5.html"><img src="../Images/AnimeClothing4-1.jpg"></a>
                 <h4>Oversized Horror Comic Back Printed White Sweatshirt by CosplayMania</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -122,7 +123,7 @@
                 <p>₱2300.00</p>
             </div>
             <div class="col-4">
-                <a href="products-details6.html"><img src="AnimeClothing5-1.jpg"></a>
+                <a href="../HTML_CSS_DATABASE/products-details6.html"><img src="../Images/AnimeClothing5-1.jpg"></a>
                 <h4>Horror Comic Printed Fake Two Pieces Stitching T-Shirt</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -134,7 +135,7 @@
                 <p>₱2800.00</p>
             </div>
             <div class="col-4">
-                <a href="products-details7.html"><img src="AnimeClothing6-1.jpg"></a>
+                <a href="../HTML_CSS_DATABASE/products-details7.html"><img src="../Images/AnimeClothing6-1.jpg"></a>
                 <h4>Anime Girl Printed Black and White Oversized T-Shirt</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -146,7 +147,7 @@
                 <p>₱1100.00</p>
             </div>
             <div class="col-4">
-                <a href="products-details8.html"><img src="AnimeClothing7-1.jpg"></a>
+                <a href="../HTML_CSS_DATABASE/products-details8.html"><img src="../Images/AnimeClothing7-1.jpg"></a>
                 <h4>Anime Print High Waist Washed Denim Jeans by Uniqlo</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -160,7 +161,7 @@
         </div>
         <div class="row">
             <div class="col-4">
-                <a href="products-details9.html"><img src="AniClo-case-1-1.jpg"></a>
+                <a href="../HTML_CSS_DATABASE/products-details9.html"><img src="../Images/AniClo-case-1-1.jpg"></a>
                 <h4>Transparent Anime Rich Girl Iphone Cover Case</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -172,7 +173,7 @@
                 <p>₱1500.00</p>
             </div>
             <div class="col-4">
-                <a href="products-details10.html"><img src="AnimeClothing8-1.jpg"></a>
+                <a href="../HTML_CSS_DATABASE/products-details10.html"><img src="../Images/AnimeClothing8-1.jpg"></a>
                 <h4>Sale Anime Girl Print Loose Hooded Black Sweatshirt</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -184,7 +185,7 @@
                 <p>₱1200.00</p>
             </div>
             <div class="col-4">
-                <a href="products-details11.html"><img src="AnimeClothing9-1.jpg"></a>
+                <a href="../HTML_CSS_DATABASE/products-details11.html"><img src="../Images/AnimeClothing9-1.jpg"></a>
                 <h4>Anime Comic Cartoon Printed Oversized Hoodie</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -196,7 +197,7 @@
                 <p>₱2000.00</p>
             </div>
             <div class="col-4">
-                <a href="products-details12.html"><img src="AniClo-case-2-1.jpg"></a>
+                <a href="../HTML_CSS_DATABASE/products-details12.html"><img src="../Images/AniClo-case-2-1.jpg"></a>
                 <h4>Anime Characters Iphone Cover Case</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -214,7 +215,7 @@
         <div class="small-container">
             <div class="row">
                 <div class="col-2">
-                    <img src="animeShoes3.jpeg" class="offer-img">
+                    <img src="../Images/animeShoes3.jpeg" class="offer-img">
                 </div>
                 <div class="col-2">
                     <p>Exclusively Available on ANICLO</p>
@@ -223,7 +224,7 @@
                         Anime Death Note, It is chuck taylor type of shoes so 
                         it's more Aesthetically looking.
                     </small>
-                    <a href="products.html" class="btn">Buy Now &#8594;</a>
+                    <a href="../HTML_CSS_DATABASE/products.html" class="btn">Buy Now &#8594;</a>
                 </div>
             </div>
         </div>
@@ -244,7 +245,7 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-o"></i>
                     </div>
-                    <img src="user-anime1.jpeg">
+                    <img src="../Images/user-anime1.jpeg">
                     <h3>Rossy</h3>
                 </div>
                 <div class="col-3">
@@ -258,7 +259,7 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-o"></i>
                     </div>
-                    <img src="user-anime2.jpeg">
+                    <img src="../Images/user-anime2.jpeg">
                     <h3>Nanase Mari</h3>
                 </div>
                 <div class="col-3">
@@ -272,7 +273,7 @@
                         <i class="fa fa-star-half-o"></i>
                         <i class="fa fa-star-o"></i>
                     </div>
-                    <img src="user-anime3.jpeg">
+                    <img src="../Images/user-anime3.jpeg">
                     <h3>Shi Shi</h3>
                 </div>
             </div>
@@ -284,27 +285,27 @@
             <div class="row">
                 <div class="col-5">  
 					<a href="https://myanimelist.net/anime/35848/Promare">
-                    <img src="expologo.png" alt ="expologo">
+                    <img src="../Images/expologo.png" alt ="expologo">
 					</a>
                 </div>
                 <div class="col-5">
 					<a href="https://cosplay.ph/cosplay-mania-2023-tickets/">
-                    <img src="logo2.png" alt="logo2">
+                    <img src="../Images/logo2.png" alt="logo2">
 					</a>
                 </div>
                 <div class="col-5">
 					<a href = "https://anilist.co/search/anime/top-100">
-                    <img src="AnimeLogo.png" alt="animelogo">
+                    <img src="../Images/AnimeLogo.png" alt="animelogo">
 					</a>
                 </div>
                 <div class="col-5">
 					<a href = "https://www.paypal.com/ph/home">
-                    <img src="logo-paypal.png" alt ="paypal">
+                    <img src="../Images/logo-paypal.png" alt ="paypal">
 					</a>
                 </div>
                 <div class="col-5">
 					<a href ="https://www.coca-colacompany.com/">
-                    <img src="logo-coca-cola.png" alt ="coke">
+                    <img src="../Images/logo-coca-cola.png" alt ="coke">
 					</a>
                 </div>
             </div>
@@ -318,14 +319,14 @@
                     <h3>Download Our App</h3>
                     <p>Download App for Android and IOS mobile phone.</p>
                     <div class="app-logo">
-						<a href="https://www.appcracy.com/app/google-play-store/?utm_source=bing&utm_medium=cpc&utm_campaign=PS_ASIA_M05&utm_term=play%20store&utm_content=PS">
-                        <img src="play-store.png">
-                        <img src="app-store.png">
-						</a>
+                        <a href="https://www.appcracy.com/app/google-play-store/?utm_source=bing&utm_medium=cpc&utm_campaign=PS_ASIA_M05&utm_term=play%20store&utm_content=PS">
+                        <img src="../Images/play-store.png">
+                        <img src="../Images/app-store.png">
+                        </a>
                     </div>
                 </div>
                 <div class="footer-col-2">
-                    <img src="aniclo-white.png">
+                    <img src="../Images/aniclo-white.png">
                     <p>Our Purpose is to give a good Aesthetically Looking
                     to everyone by also loving anime at the same time.</p>
                 </div>

@@ -1,11 +1,10 @@
-<!--Gonzales & Lagado-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details - AniClo</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../HTML_CSS_DATABASE/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     
@@ -15,18 +14,18 @@
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <a href="index.html"><img src="aniclo-black.png" width="150px"></a>
+                <a href="../HTML_CSS_DATABASE/index.html"><img src="../Images/aniclo-black.png" width="150px"></a>
             </div>
             <nav>
                 <ul id="MenuItems">
-                     <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="about.html">About</a></li>
-					<li><a href="account.html">Logout</a></li>
+                     <li><a href="../HTML_CSS_DATABASE/index.html">Home</a></li>
+                    <li><a href="../HTML_CSS_DATABASE/products.html">Products</a></li>
+                    <li><a href="../HTML_CSS_DATABASE/about.html">About</a></li>
+					<li><a href="../HTML_CSS_DATABASE/account.html">Logout</a></li>
                 </ul>
             </nav>
-            <a href="cart.html"><img src="cart.png" width="30px" height="30px"></a>
-            <img src="menu.png" class="menu-icon" onclick="menutoggle()">
+            <a href="../HTML_CSS_DATABASE/cart.html"><img src="../Images/cart.png" width="30px" height="30px"></a>
+            <img src="../Images/menu.png" class="menu-icon" onclick="menutoggle()">
         </div>
     </div>
 
@@ -34,33 +33,28 @@
     <div class="small-container single-product">
         <div class="row">
             <div class="col-2">
-                <img src="AnimeClothing9-1.jpg" width="100%" id="ProductImg">
+                <img src="../Images/AnimeClothing3-1.jpg" width="100%" id="ProductImg">
 
                 <div class="small-img-row">
                     <div class="small-img-col">
-                        <img src="AnimeClothing9-1.jpg" width="100%" class="small-img">
+                        <img src="../Images/AnimeClothing3-1.jpg" width="100%" class="small-img">
                     </div>
                     <div class="small-img-col">
-                        <img src="AnimeClothing9-2.jpg" width="100%" class="small-img">
+                        <img src="../Images/AnimeClothing3-2.jpg" width="100%" class="small-img">
                     </div>
                     <div class="small-img-col">
-                        <img src="AnimeClothing9-3.jpg" width="100%" class="small-img">
+                        <img src="../Images/AnimeClothing3-3.jpg" width="100%" class="small-img">
                     </div>
                     <div class="small-img-col">
-                        <img src="AnimeClothing9-4.jpg" width="100%" class="small-img">
+                        <img src="../Images/AnimeClothing3-4.jpg" width="100%" class="small-img">
                     </div>
                 </div>
 
             </div>
             <div class="col-2">
-                <p>Home / Sweatshirt</p>
-                <h1>Anime Comic Cartoon Printed Oversized Hoodie</h1>
+                <p>Home / Pants</p>
+                <h1>Anime Face Print Aesthetic Loose Blue Jeans</h1>
                 <h4>₱2100.00</h4>
-                <h5>Color:</h5>
-                <button class="btn1-details1" onclick="selectColor('Gray')">Gray</button>
-                <button class="btn2-details1" onclick="selectColor('Black')">Black</button>
-                <br>
-                <h3>Product Details<i class="fa fa-indent"></i></h3>
                 <select id="sizeSelect" onchange="updateSelectedSize()">
                     <option value="">Select Size</option>
                     <option value="XL">XL</option>
@@ -68,20 +62,24 @@
                     <option value="Medium">Medium</option>
                 </select>
                 <input type="number" id="quantityInput" value="1">
-                <a href="cart.html" class="btn" onclick="addToCart()">Add to Cart</a>
+                <a href="../HTML_CSS_DATABASE/cart.html" class="btn" onclick="addToCart()">Add to Cart</a>
                 <div id="cartSummary">
                     <p id="productSummary"></p>
                     <p id="sizeSummary"></p>
-                    <p id="quantitySummary"></p>                    
+                    <p id="quantitySummary"></p>
                 </div>
+            </div>
 
                 <h3>Product Details<i class="fa fa-indent"></i></h3>
                 <br>
                 <p>
-                    Size M  length 67cm/26.37in; bust 116cm/45.66in, sleeve length 62cm/24.4in; shoulders 52cm/20.47in
+                    Size M length 99cm/38.97in; waist 73cm/28.7in; hips 103cm/40.5in
                     <br>
-                    Size L  length 69cm/27.16in; bust 120cm/47.24in, sleeve length 63cm/24.8in; shoulders 54cm/21.25in
-                </p>
+                    Size L length 100cm/39.3in; waist 77cm/30.3in; hips 107cm/42.12in
+                    <br>
+                    Size XL	length 101cm/39.7in; waist 81cm/31.8in; hips 111cm/43.7in
+                    <br>
+                    Material denim</p>
             </div>
         </div>
     </div>
@@ -99,7 +97,7 @@
     <div class="small-container">
         <div class="row">
             <div class="col-4">
-                <img src="AnimeClothing3.jpg">
+                <img src="../Images/AnimeClothing3.jpg">
                 <h4>Japanese Anime Colored Black TShirt</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -111,7 +109,7 @@
                 <p>₱1200.00</p>
             </div>
             <div class="col-4">
-                <img src="AnimeClothing4.jpeg">
+                <img src="../Images/AnimeClothing4.jpeg">
                 <h4>Japanese Quadratic Elements Diffuse Exhibition TShirt</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -123,7 +121,7 @@
                 <p>₱1300.00</p>
             </div>
             <div class="col-4">
-                <img src="AnimeClothing5.jpeg">
+                <img src="../Images/AnimeClothing5.jpeg">
                 <h4>Slight Cartoon Anime Print White</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -135,7 +133,7 @@
                 <p>₱1100.00</p>
             </div>
             <div class="col-4">
-                <img src="AnimeClothing6.jpeg">
+                <img src="../Images/AnimeClothing6.jpeg">
                 <h4>Summer Lolita Style Women Shirt Ins Dark Retro Anime Painting</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -148,8 +146,6 @@
             </div>
         </div>
     </div>
-
-<!---- footer ---->
     <div class="footer">
         <div class="container">
             <div class="row">
@@ -157,14 +153,14 @@
                     <h3>Download Our App</h3>
                     <p>Download App for Android and IOS mobile phone.</p>
                     <div class="app-logo">
-						<a href="https://www.appcracy.com/app/google-play-store/?utm_source=bing&utm_medium=cpc&utm_campaign=PS_ASIA_M05&utm_term=play%20store&utm_content=PS">
-                        <img src="play-store.png">
-                        <img src="app-store.png">
-						</a>
+                        <a href="https://www.appcracy.com/app/google-play-store/?utm_source=bing&utm_medium=cpc&utm_campaign=PS_ASIA_M05&utm_term=play%20store&utm_content=PS">
+                        <img src="../Images/play-store.png">
+                        <img src="../Images/app-store.png">
+                        </a>
                     </div>
                 </div>
                 <div class="footer-col-2">
-                    <img src="aniclo-white.png">
+                    <img src="../Images/aniclo-white.png">
                     <p>Our Purpose is to give a good Aesthetically Looking
                     to everyone by also loving anime at the same time.</p>
                 </div>
@@ -233,56 +229,56 @@
     </script>
 
 <script>
-    var selectedColor = ''; // Variable to store the selected color
-
-    function selectColor(color) {
-        selectedColor = color;
-    }
-
-    function addToCart() {
-        var productName = "Anime Comic Cartoon Printed Oversized Hoodie"; // Customize this as needed
-        var sizeSelect = document.getElementById('sizeSelect');
-        var selectedSize = sizeSelect.options[sizeSelect.selectedIndex].text;
-        var quantity = parseInt(document.getElementById('quantityInput').value);
-        var itemPrice = parseFloat(document.querySelector('h4').innerText.replace('₱', ''));
-
-        if (selectedSize !== "Select Size" && selectedColor !== '') {
-            // Use localStorage to get the current cart items
-            var cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-            // Check if the product with the selected size and color already exists in the cart
-            var existingProduct = cart.find(item => item.name === productName + " - " + selectedColor && item.size === selectedSize);
-
-            if (existingProduct) {
-                // If the product exists, update the quantity
-                existingProduct.quantity += quantity;
-            } else {
-                // If the product doesn't exist, create a new item
-                var item = {
-                    name: productName + " - " + selectedColor,
-                    size: selectedSize,
-                    quantity: quantity,
-                    price: itemPrice
-                };
-                cart.push(item);
-            }
-
-            // Update the cart in localStorage
-            localStorage.setItem('cart', JSON.stringify(cart));
-
-            // Display the updated cart summary on the current page
-            var productSummaryElement = document.getElementById('productSummary');
-            var sizeSummaryElement = document.getElementById('sizeSummary');
-            var quantitySummaryElement = document.getElementById('quantitySummary');
-
-            productSummaryElement.textContent = `Product: ${productName} - ${selectedColor}`;
-            sizeSummaryElement.textContent = `Size: ${selectedSize}`;
-            quantitySummaryElement.textContent = `Quantity: ${quantity}`;
-        } else {
-            alert('Please select a size and color before adding to cart.');
+     function updateSelectedSize() {
+            var sizeSelect = document.getElementById('sizeSelect');
+            var selectedSize = sizeSelect.options[sizeSelect.selectedIndex].text;
+            // You can perform additional actions based on the selected size if needed
         }
-    }
-</script>
 
+        function addToCart() {
+            var productName = "Anime Face Print Aesthetic Loose Blue Jeans"; // Customize this as needed
+            var sizeSelect = document.getElementById('sizeSelect');
+            var selectedSize = sizeSelect.options[sizeSelect.selectedIndex].text;
+
+            var quantity = parseInt(document.getElementById('quantityInput').value);
+            var itemPrice = parseFloat(document.querySelector('h4').innerText.replace('₱', ''));
+
+            if (selectedSize !== "Select Size") {
+                // Use localStorage to get the current cart items
+                var cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                // Check if the product with the selected size already exists in the cart
+                var existingProduct = cart.find(item => item.name === productName && item.size === selectedSize);
+
+                if (existingProduct) {
+                    // If the product exists, update the quantity
+                    existingProduct.quantity += quantity;
+                } else {
+                    // If the product doesn't exist, create a new item
+                    var item = {
+                        name: productName,
+                        size: selectedSize,
+                        quantity: quantity,
+                        price: itemPrice
+                    };
+                    cart.push(item);
+                }
+
+                // Update the cart in localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+
+                // Display the updated cart summary on the current page
+                var productSummaryElement = document.getElementById('productSummary');
+                var sizeSummaryElement = document.getElementById('sizeSummary');
+                var quantitySummaryElement = document.getElementById('quantitySummary');
+
+                productSummaryElement.textContent = `Product: ${productName}`;
+                sizeSummaryElement.textContent = `Size: ${selectedSize}`;
+                quantitySummaryElement.textContent = `Quantity: ${quantity}`;
+            } else {
+                alert('Please select a size before adding to cart.');
+            }
+        }
+</script>
 </body>
 </html>

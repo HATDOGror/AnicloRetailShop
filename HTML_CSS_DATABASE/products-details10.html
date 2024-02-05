@@ -5,28 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details - AniClo</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../HTML_CSS_DATABASE/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    
+
 </head>
 <body>
 
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <a href="index.html"><img src="aniclo-black.png" width="150px"></a>
+                <a href="../HTML_CSS_DATABASE/index.html"><img src="../Images/aniclo-black.png" width="150px"></a>
             </div>
             <nav>
                 <ul id="MenuItems">
-                     <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="about.html">About</a></li>
-					<li><a href="account.html">Logout</a></li>
+                     <li><a href="../HTML_CSS_DATABASE/index.html">Home</a></li>
+                    <li><a href="../HTML_CSS_DATABASE/products.html">Products</a></li>
+                    <li><a href="../HTML_CSS_DATABASE/about.html">About</a></li>
+					<li><a href="../HTML_CSS_DATABASE/account.html">Logout</a></li>
                 </ul>
             </nav>
-            <a href="cart.html"><img src="cart.png" width="30px" height="30px"></a>
-            <img src="menu.png" class="menu-icon" onclick="menutoggle()">
+            <a href="../HTML_CSS_DATABASE/cart.html"><img src="../Images/cart.png" width="30px" height="30px"></a>
+            <img src="../Images/menu.png" class="menu-icon" onclick="menutoggle()">
         </div>
     </div>
 
@@ -34,28 +34,28 @@
     <div class="small-container single-product">
         <div class="row">
             <div class="col-2">
-                <img src="AnimeClothing7-1.jpg" width="100%" id="ProductImg">
+                <img src="../Images/AnimeClothing8-1.jpg" width="100%" id="ProductImg">
 
                 <div class="small-img-row">
                     <div class="small-img-col">
-                        <img src="AnimeClothing7-1.jpg" width="100%" class="small-img">
+                        <img src="../Images/AnimeClothing8-1.jpg" width="100%" class="small-img">
                     </div>
                     <div class="small-img-col">
-                        <img src="AnimeClothing7-2.jpg" width="100%" class="small-img">
+                        <img src="../Images/AnimeClothing8-2.jpg" width="100%" class="small-img">
                     </div>
                     <div class="small-img-col">
-                        <img src="AnimeClothing7-3.jpg" width="100%" class="small-img">
+                        <img src="../Images/AnimeClothing8-3.jpg" width="100%" class="small-img">
                     </div>
                     <div class="small-img-col">
-                        <img src="AnimeClothing7-4.jpg" width="100%" class="small-img">
+                        <img src="../Images/AnimeClothing8-4.jpg" width="100%" class="small-img">
                     </div>
                 </div>
 
             </div>
             <div class="col-2">
-                <p>Home / Pants</p>
-                <h1>Anime Print High Waist Washed Denim Jeans</h1>
-                <h4>₱5800.00</h4>
+                <p>Home / Sweatshirt</p>
+                <h1>Sale Anime Girl Print Loose Hooded Black Sweatshirt</h1>
+                <h4>₱1200.00</h4>
                 <select id="sizeSelect" onchange="updateSelectedSize()">
                     <option value="">Select Size</option>
                     <option value="XL">XL</option>
@@ -63,23 +63,16 @@
                     <option value="Medium">Medium</option>
                 </select>
                 <input type="number" id="quantityInput" value="1">
-                <a href="cart.html" class="btn" onclick="addToCart()">Add to Cart</a>
+                <a href="../HTML_CSS_DATABASE/cart.html" class="btn" onclick="addToCart()">Add to Cart</a>
                 <div id="cartSummary">
                     <p id="productSummary"></p>
                     <p id="sizeSummary"></p>
                     <p id="quantitySummary"></p>
                 </div>
-
                 <h3>Product Details<i class="fa fa-indent"></i></h3>
                 <br>
                 <p>
-                    Size S  length 101cm/39.76in; waist 78cm/30.7in; hips 99cm/38.97in
-                    <br>
-                    Size M  length 103cm/40.55in; waist 80cm/31.49in; hips 101cm/39.76in
-                    <br>
-                    Size L  length 105cm/41.33in; waist 82cm/32.28in; hips 103cm/40.55in
-                    <br>
-                    Size XL  length 107cm/42.12in; waist 84cm/33.07in; hips 105cm/41.33in
+                    Size XXL  length 72cm/28.3in; bust 123cm/48.42in; sleeve length 59cm/23.2in; shoulders 62cm/24.4in
                 </p>
             </div>
         </div>
@@ -98,7 +91,7 @@
     <div class="small-container">
         <div class="row">
             <div class="col-4">
-                <img src="AnimeClothing3.jpg">
+                <img src="../Images/AnimeClothing3.jpg">
                 <h4>Japanese Anime Colored Black TShirt</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -110,7 +103,7 @@
                 <p>₱1200.00</p>
             </div>
             <div class="col-4">
-                <img src="AnimeClothing4.jpeg">
+                <img src="../Images/AnimeClothing4.jpeg">
                 <h4>Japanese Quadratic Elements Diffuse Exhibition TShirt</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -122,7 +115,7 @@
                 <p>₱1300.00</p>
             </div>
             <div class="col-4">
-                <img src="AnimeClothing5.jpeg">
+                <img src="../Images/AnimeClothing5.jpeg">
                 <h4>Slight Cartoon Anime Print White</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -134,7 +127,7 @@
                 <p>₱1100.00</p>
             </div>
             <div class="col-4">
-                <img src="AnimeClothing6.jpeg">
+                <img src="../Images/AnimeClothing6.jpeg">
                 <h4>Summer Lolita Style Women Shirt Ins Dark Retro Anime Painting</h4>
                 <div class="rating">
                     <i class="fa fa-star"></i>
@@ -148,7 +141,6 @@
         </div>
     </div>
 
-<!---- footer ---->
     <div class="footer">
         <div class="container">
             <div class="row">
@@ -156,14 +148,14 @@
                     <h3>Download Our App</h3>
                     <p>Download App for Android and IOS mobile phone.</p>
                     <div class="app-logo">
-						<a href="https://www.appcracy.com/app/google-play-store/?utm_source=bing&utm_medium=cpc&utm_campaign=PS_ASIA_M05&utm_term=play%20store&utm_content=PS">
-                        <img src="play-store.png">
-                        <img src="app-store.png">
-						</a>
+                        <a href="https://www.appcracy.com/app/google-play-store/?utm_source=bing&utm_medium=cpc&utm_campaign=PS_ASIA_M05&utm_term=play%20store&utm_content=PS">
+                        <img src="../Images/play-store.png">
+                        <img src="../Images/app-store.png">
+                        </a>
                     </div>
                 </div>
                 <div class="footer-col-2">
-                    <img src="aniclo-white.png">
+                    <img src="../Images/aniclo-white.png">
                     <p>Our Purpose is to give a good Aesthetically Looking
                     to everyone by also loving anime at the same time.</p>
                 </div>
@@ -233,7 +225,7 @@
 
 <script>
     function addToCart() {
-      var productName = "Anime Print High Waist Washed Denim Jeans"; // Customize this as needed
+      var productName = "Sale Anime Girl Print Loose Hooded Black Sweatshirt"; // Customize this as needed
       var sizeSelect = document.getElementById('sizeSelect');
       var selectedSize = sizeSelect.options[sizeSelect.selectedIndex].text;
 
@@ -277,6 +269,6 @@
       }
   }
 </script>
-	
+
 </body>
 </html>
