@@ -6,6 +6,7 @@
     <title>All Products - AniClo</title>
     <link rel="stylesheet" href="../HTML_CSS_DATABASE/style.css">
     <link rel="stylesheet" href="../HTML_CSS_DATABASE/SuggestionForm.css">
+    <link rel ="stylesheet" href="../HTML_CSS_DATABASE/SearchBar.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 </head>
@@ -29,7 +30,14 @@
         </div>
     </div>
 
-    <div class="small-container">
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search products...">
+        <button type="button" class="search-btn" onclick="searchProducts()">
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+    
+    <div class="small-container" id="productContainer">
         
         <div class="row">
          
@@ -264,7 +272,25 @@
 			suggestionsForm.style.display = 'none';
 		}
 		</script>
-
-
-</body>
+        <script>
+            function searchProducts() {
+                var input, filter, container, products, product, title, i, txtValue;
+                input = document.getElementById('searchInput');
+                filter = input.value.toUpperCase();
+                container = document.getElementById('productContainer');
+                products = container.getElementsByClassName('col-4');
+        
+                for (i = 0; i < products.length; i++) {
+                    product = products[i];
+                    title = product.getElementsByTagName('h4')[0];
+                    txtValue = title.textContent || title.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        product.style.display = '';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                }
+            }
+        </script>
+    </body>
 </html>
