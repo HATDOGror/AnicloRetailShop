@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details - AniClo</title>
     <link rel="stylesheet" href="../HTML_CSS_DATABASE/style.css">
+    <link rel="stylesheet" href="../HTML_CSS_DATABASE/SuggestionForm.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     
@@ -149,6 +150,20 @@
         </div>
     </div>
 
+    <div id="suggestionsForm" class="suggestions-form">
+        <form id="suggestionsFormContent" class="suggestions-form-content" method="post" action="Suggestion.php">
+        <h2>We love to hear from you!</h2><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="suggestions">Suggestions:</label>
+        <textarea id="suggestions" name="suggestions" rows="4" required></textarea>
+        <button type="submit">Submit</button>
+        <button type="button" onclick="closeSuggestionsForm()">Close</button>
+        </form>
+    </div>
+
     <div class="footer">
         <div class="container">
             <div class="row">
@@ -171,9 +186,9 @@
                     <h3>Useful Links</h3>
                     <ul>
                         <li><a href="https://dealspotr.com/promo-codes/animeape.com">Coupon</a></li>
-                        <li><a href ="https://myotakuworld.com/">Blog Post</a></li>
-                        <li><a href = "https://animeandthings.com/refunds-returns-policy/">Return Policy</a></li>
-                        <li><a href ="https://www.affilorama.com/blog/best-anime-affiliate-programs">Join Affiliate</a></li>
+                        <li><a href="https://dealspotr.com/promo-codes/animeape.com">Anime Blogs</a></li>
+                        <li><a href="#" onclick="openPDFInNewTab('../Docs/RefundPolicy.pdf')">Return Policy</a></li>								
+                         <li><a href="#" onclick="openSuggestionsForm()">Suggestions</a></li>
                     </ul>
                 </div>
                 <div class="footer-col-4">
@@ -282,6 +297,26 @@
         }
     }
 </script>
+<script>
+    function openPDFInNewTab(pdfPath) {
+        window.open(pdfPath, '_blank');
+        return false;
+    }
+    
+    function openPDFInNewTab(pdfUrl) {
+        window.open(pdfUrl, '_blank');
+    }
+
+    function openSuggestionsForm() {
+        var suggestionsForm = document.getElementById('suggestionsForm');
+        suggestionsForm.style.display = 'block';
+    }
+
+    function closeSuggestionsForm() {
+        var suggestionsForm = document.getElementById('suggestionsForm');
+        suggestionsForm.style.display = 'none';
+    }
+    </script>
 
 </body>
 </html>
